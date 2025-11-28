@@ -1,0 +1,380 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>My Cup of T – Drag & Drop Accident FR / EN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+        --blue: #003b7a;
+        --red: #c8102e;
+        --green: #009e60;
+        --bg: #f4f6fb;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        margin: 0;
+        padding: 0 0 20px 0;
+        color: #222;
+    }
+
+    header {
+        background: linear-gradient(90deg, var(--blue), var(--green));
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-theme {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background: #fff;
+        padding: 4px;
+        object-fit: contain;
+    }
+
+    .header-text span:first-child {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        display: block;
+    }
+
+    .header-text span:nth-child(2) {
+        display: block;
+        font-size: 13px;
+    }
+
+    .header-text h3 {
+        margin: 4px 0 0 0;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--blue);
+        margin: 18px 10px 4px 10px;
+        font-size: 22px;
+    }
+
+    .subtitle {
+        text-align: center;
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 15px;
+    }
+
+    .container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    .box {
+        background: #ffffff;
+        padding: 18px;
+        border-radius: 12px;
+        width: 45%;
+        min-width: 320px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.12);
+        display: flex;
+        flex-direction: column;
+        max-height: 500px;
+        border-top: 4px solid var(--blue);
+    }
+
+    .scroll-area {
+        overflow-y: auto;
+        margin-top: 10px;
+        padding-right: 5px;
+    }
+
+    .phrase {
+        padding: 10px;
+        background: #e6efff;
+        border-radius: 8px;
+        margin: 6px 0;
+        cursor: grab;
+        font-size: 14px;
+        border-left: 4px solid var(--red);
+        transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .phrase:hover {
+        transform: translateX(2px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .target {
+        padding: 12px;
+        border: 2px dashed var(--blue);
+        border-radius: 8px;
+        min-height: 40px;
+        margin: 6px 0;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        background: #f9fbff;
+        transition: background 0.2s, border-color 0.2s;
+    }
+
+    .target.correct {
+        background: #d7f6dd !important;
+        border-color: var(--green) !important;
+    }
+
+    .target.wrong {
+        background: #fde2e2 !important;
+        border-color: var(--red) !important;
+    }
+
+    .fr-text {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    .separator {
+        text-align: center;
+        font-size: 18px;
+        margin: 4px 0 8px 0;
+        display: block;
+    }
+
+    .en-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        border-top: 1px dashed rgba(0,0,0,0.15);
+        padding-top: 6px;
+        margin-top: 4px;
+        width: 100%;
+    }
+
+    .en-text {
+        font-size: 13px;
+        display: block;
+        color: #03396c;
+        flex: 1;
+    }
+
+    .audio-btn {
+        border: none;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        background: rgba(0,59,122,0.07);
+        color: var(--blue);
+        flex-shrink: 0;
+    }
+
+    .audio-btn:hover {
+        background: rgba(0,59,122,0.15);
+    }
+
+    .buttons {
+        text-align: center;
+        margin-top: 18px;
+    }
+
+    button {
+        padding: 9px 18px;
+        background: var(--blue);
+        color: white;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .btn-index {
+        background: #777;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="img/mycup-sftrf.png" alt="My Cup of T & SFTRF" class="logo-theme">
+        <div class="header-text">
+            <span>MY CUP OF T</span>
+            <span>Atelier anglais – Vocabulaire sécurité & accident</span>
+            <h3>Emergency calls – part.1 FR / EN</h3>
+        </div>
+    </div>
+</header>
+
+<h1>Associer les phrases françaises et anglaises</h1>
+<p class="subtitle">
+    Faites glisser chaque phrase française vers la bonne traduction anglaise, puis écoutez la prononciation UK 🔊.
+</p>
+
+<div class="container">
+    <div class="box">
+        <h2>🇫🇷 French sentences</h2>
+        <div id="phrasesContainer" class="scroll-area"></div>
+    </div>
+
+    <div class="box">
+        <h2>🇬🇧 English translations</h2>
+        <div id="targetsContainer" class="scroll-area"></div>
+    </div>
+</div>
+
+<div class="buttons">
+    <button onclick="location.reload()">Réinitialiser</button>
+    <button class="btn-index" onclick="window.location.href='index.html'">Retour à l’index</button>
+</div>
+
+<script>
+    const data = [
+        ["p1", "Je viens de voir un accident", "I've just seen an accident"],
+        ["p2", "Je viens d’avoir un accident", "I've just had an accident"],
+        ["p3", "Étiez-vous impliqué dans l’accident ou seulement témoin ?", "Were you involved in the accident or did you just see it?"],
+        ["p4", "J’ai percuté la glissière centrale", "I hit the central crash barrier"],
+        ["p5", "J’ai percuté une autre voiture", "I hit another car / I crashed into another car"],
+        ["p6", "J’ai fait un tête-à-queue", "I did a half-turn"],
+        ["p7", "Combien de véhicules sont impliqués ?", "How many vehicles are involved?"],
+        ["p8", "Quelle sorte de véhicules ?", "What sort of vehicles? / What kind of vehicles?"],
+        ["p9", "L’accident est-il de votre côté ou de l’autre côté de la route ?", "Is the accident on your side or the opposite side of the road?"],
+        ["p10", "Y a-t-il des blessés ?", "Is anybody injured / Is anybody hurt?"],
+        ["p11", "Combien de blessés y a-t-il ?", "How many people are injured / hurt?"],
+        ["p12", "De quelle gravité sont les blessures ?", "How serious are the injuries?"],
+        ["p13", "Gravement blessé", "Seriously hurt / injured"],
+        ["p14", "Légèrement blessé", "Slightly hurt / injured"],
+        ["p15", "Plusieurs blessés", "Several injured people / several people hurt"],
+        ["p16", "Quelques blessés", "A few injured people / a few people hurt"],
+        ["p17", "Une personne tuée", "One person dead / killed"],
+        ["p18", "Où sont les blessés ?", "Where are the injured people?"],
+        ["p19", "Y a-t-il toujours quelqu’un dans le véhicule ?", "Is anybody still in their vehicle?"],
+        ["p20", "Y a-t-il quelqu’un coincé dans le véhicule ?", "Is anybody still trapped in their vehicle?"],
+        ["p21", "Restez calme", "Stay calm"],
+        ["p22", "Ne vous inquiétez pas", "Don’t worry"],
+        ["p23", "Les services d’urgence arriveront bientôt", "The emergency services will arrive soon"]
+    ];
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    const phrasesContainer = document.getElementById("phrasesContainer");
+    const targetsContainer = document.getElementById("targetsContainer");
+
+    shuffle(data).forEach(([id, fr, en]) => {
+        const div = document.createElement("div");
+        div.className = "phrase";
+        div.draggable = true;
+        div.id = id;
+        div.textContent = fr;
+        div.dataset.en = en;
+        phrasesContainer.appendChild(div);
+    });
+
+    shuffle(data).forEach(([id, fr, en]) => {
+        const div = document.createElement("div");
+        div.className = "target";
+        div.dataset.match = id;
+        div.dataset.en = en;
+        div.textContent = en;
+        targetsContainer.appendChild(div);
+    });
+
+    let dragged = null;
+
+    document.addEventListener("dragstart", e => {
+        if (e.target.classList.contains("phrase")) {
+            dragged = e.target;
+        }
+    });
+
+    document.addEventListener("dragover", e => {
+        if (e.target.classList.contains("target")) e.preventDefault();
+    });
+
+    document.addEventListener("drop", e => {
+        if (e.target.classList.contains("target") && dragged) {
+
+            if (e.target.classList.contains("correct")) return;
+
+            if (e.target.dataset.match === dragged.id) {
+                e.target.classList.add("correct");
+
+                const french = dragged.textContent;
+                const english = e.target.dataset.en;
+
+                e.target.innerHTML = `
+                    <span class="fr-text">${french}</span>
+                    <span class="separator">🇫🇷 → 🇬🇧</span>
+                    <div class="en-line">
+                        <span class="en-text">${english}</span>
+                        <button type="button" class="audio-btn" data-en="${english}">🔊</button>
+                    </div>
+                `;
+
+                dragged.style.transition = "0.3s";
+                dragged.style.opacity = "0";
+                setTimeout(() => dragged.remove(), 300);
+
+            } else {
+                e.target.classList.add("wrong");
+                setTimeout(() => e.target.classList.remove("wrong"), 700);
+            }
+        }
+    });
+
+    function playEnglish(text) {
+        if (!('speechSynthesis' in window)) {
+            alert("La synthèse vocale n'est pas supportée sur ce navigateur.");
+            return;
+        }
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "en-GB";
+
+        const voices = window.speechSynthesis.getVoices();
+        const ukVoice = voices.find(v => v.lang === "en-GB" || v.lang.startsWith("en-GB"));
+        if (ukVoice) utter.voice = ukVoice;
+
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utter);
+    }
+
+    document.addEventListener("click", e => {
+        if (e.target.classList.contains("audio-btn")) {
+            playEnglish(e.target.dataset.en);
+        }
+    });
+
+    if (typeof speechSynthesis !== "undefined") {
+        speechSynthesis.onvoiceschanged = () => {};
+    }
+</script>
+
+</body>
+</html>

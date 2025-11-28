@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>My Cup of T – Emergency calls – Index</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    :root {
+        --blue: #003b7a;
+        --red: #c8102e;
+        --green: #009e60;
+        --bg: #f4f6fb;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        margin: 0;
+        padding: 0 0 30px 0;
+        color: #222;
+    }
+
+    header {
+        background: linear-gradient(90deg, var(--blue), var(--green));
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-theme {
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        background: #fff;
+        padding: 4px;
+        object-fit: contain;
+    }
+
+    .header-text span:first-child {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        display: block;
+    }
+
+    .header-text span:nth-child(2) {
+        display: block;
+        font-size: 13px;
+    }
+
+    .header-text h3 {
+        margin: 4px 0 0 0;
+        font-size: 15px;
+        font-weight: normal;
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--blue);
+        margin: 20px 10px 8px 10px;
+        font-size: 24px;
+    }
+
+    .intro {
+        max-width: 800px;
+        margin: 0 auto 20px auto;
+        font-size: 14px;
+        line-height: 1.6;
+        padding: 0 15px;
+    }
+
+    .intro strong {
+        color: var(--blue);
+    }
+
+    .cards {
+        max-width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        padding: 0 15px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 16px 18px;
+        box-shadow: 0 0 8px rgba(0,0,0,0.10);
+        border-top: 4px solid var(--blue);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 170px;
+    }
+
+    .card h2 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        color: var(--blue);
+    }
+
+    .card p {
+        margin: 4px 0 10px 0;
+        font-size: 13px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        text-decoration: none;
+        text-align: center;
+        background: var(--blue);
+        color: #fff;
+        margin-top: auto;
+        width: fit-content;
+    }
+
+    .btn.secondary {
+        background: var(--green);
+    }
+
+    .tips {
+        max-width: 800px;
+        margin: 22px auto 0 auto;
+        font-size: 13px;
+        padding: 10px 15px 0 15px;
+        border-top: 1px dashed rgba(0,0,0,0.15);
+        color: #444;
+    }
+
+    .tips ul {
+        padding-left: 18px;
+        margin: 6px 0 0 0;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="img/mycup-sftrf.png" alt="My Cup of T & SFTRF" class="logo-theme">
+        <div class="header-text">
+            <span>MY CUP OF T</span>
+            <span>Atelier anglais – Vocabulaire sécurité & accident</span>
+            <h3>Emergency calls – index</h3>
+        </div>
+    </div>
+</header>
+
+<h1>Emergency calls – Activités interactives</h1>
+
+<div class="intro">
+    <p>
+        Cet espace vous permet de <strong>réviser le vocabulaire des appels d’urgence</strong> en anglais
+        à partir de phrases en situation d’accident de la route.
+    </p>
+    <p>Vous disposez de :</p>
+    <ul>
+        <li><strong>Exercice 1</strong> : associer des phrases <strong>françaises</strong> avec leur traduction <strong>anglaise</strong>.</li>
+        <li><strong>Exercice 2</strong> : associer des phrases <strong>anglaises</strong> avec leur traduction <strong>anglaise</strong>.</li>
+        <li><strong>Mode test</strong> : phrases <strong>FR → EN</strong> avec un <strong>score final</strong>.</li>
+    </ul>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <h2>Exercice 1 – FR 👉 EN</h2>
+        <p>
+            Faire glisser chaque phrase <strong>en français</strong> (colonne de gauche) vers la traduction
+            <strong>en anglais</strong> (colonne de droite).  
+            Vous verrez immédiatement si l'association est correcte et vous puorrez écouter la prononciation UK 🔊.
+        </p>
+        <a href="exercice-fr-en.html" class="btn">Lancer l’exercice 1</a>
+    </div>
+
+    <div class="card">
+        <h2>Exercice 2 – EN 👉 FR</h2>
+        <p>
+            Faire glisser chaque phrase <strong>en anglais</strong> vers la bonne traduction
+            <strong>en français</strong>.  
+            Vous vous habituez à reconnaître et comprendre les expressions en situation d’urgence.
+        </p>
+        <a href="exercice-en-fr.html" class="btn">Lancer l’exercice 2</a>
+    </div>
+
+    <div class="card">
+        <h2>Mode test – FR 👉 EN</h2>
+        <p>
+            Faire l’exercice avec les phrases <strong>françaises vers anglais</strong>, mais cette fois
+            vous n’avez la correction qu’à la fin.  
+            Un score final vous indiquera votre niveau de réussite.
+        </p>
+        <a href="test-fr-en.html" class="btn secondary">Lancer le mode test</a>
+    </div>
+</div>
+
+<div class="tips">
+    <p><strong>Comment faire les exercices ?</strong></p>
+    <ul>
+        <li>Lire la phrase de la colonne de gauche.</li>
+        <li>Maintienir le clic gauche sur la phrase, déplacez-la jusqu’à la bonne traduction, puis relâchez.</li>
+        <li>Cliquer sur 🔊 pour écouter la phrase en anglais avec une prononciation britannique.</li>
+        <li>Utiliser le bouton <strong>Réinitialiser</strong> dans chaque page pour recommencer.</li>
+    </ul>
+</div>
+
+</body>
+</html>
